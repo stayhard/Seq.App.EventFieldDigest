@@ -27,7 +27,7 @@ namespace Seq.App.EventFieldDigest
         {
             base.OnAttached();
             _digest = new Digest(IgnorePattern, SanitizePattern);
-            _timer = new Timer(1000 * Interval);
+            _timer = new Timer(1000 * 3600 * Interval);
             _timer.Elapsed += CreateDigestEvent;
             _timer.AutoReset = true;
             _timer.Start();

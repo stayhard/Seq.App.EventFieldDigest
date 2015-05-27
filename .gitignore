@@ -41,3 +41,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+packages/
+Seq.App.EventFieldDigest/bin/
+Seq.App.EventFieldDigest/obj/
+*.suo

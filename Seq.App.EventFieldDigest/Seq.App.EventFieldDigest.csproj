@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Digest.cs" />
+    <Compile Include="DigestItem.cs" />
     <Compile Include="EventFieldDigestReactor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

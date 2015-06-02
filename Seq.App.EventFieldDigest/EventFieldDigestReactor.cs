@@ -23,6 +23,9 @@ namespace Seq.App.EventFieldDigest
         [SeqAppSetting(DisplayName = "Sanitize pattern", HelpText = "Parts of field value that match this pattern will be removed", IsOptional = true)]
         public string SanitizePattern { get; set; }
 
+        [SeqAppSetting(DisplayName = "Stringify digest", HelpText = "Save the Digest filed in the event as a string instead of an object", IsOptional = true)]
+        public bool StringifyDigest { get; set; }
+
         protected override void OnAttached()
         {
             base.OnAttached();
@@ -44,16 +47,26 @@ namespace Seq.App.EventFieldDigest
         private void CreateDigestEvent(object obj, ElapsedEventArgs args)
         {
             _timer.Stop();
-            var data = _digest.GetDigest();
+            var data = _digest.GetDigest().ToArray();
             _digest.Clear();
 
             if (data.Any())
             {
-                
-                Log
+                if (StringifyDigest)
+                {
+                    Log
+                    .ForContext("Digest", string.Join("\n", data.Select(e => string.Join(": ", e.Count, e.Url))))
+                    .ForContext("FieldName", FieldName)
+                    .Information("Field digest for {0}", FieldName);
+                }
+                else
+                {
+                    Log
                     .ForContext("Digest", data, true)
                     .ForContext("FieldName", FieldName)
                     .Information("Field digest for {0}", FieldName);
+                }
+                
             }
 
             _timer.Start();

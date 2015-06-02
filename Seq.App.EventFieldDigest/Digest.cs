@@ -27,23 +27,27 @@ namespace Seq.App.EventFieldDigest
 
         public void Add(string prospect)
         {
-            if (_ignoreMatcher != null && _ignoreMatcher.IsMatch(prospect)) return;
-            var sanitizedProspect = _sanitizationMatcher != null ? _sanitizationMatcher.Replace(prospect, "") : prospect;
-            if (sanitizedProspect.Length == 0) return;
+            lock (this)
+            {
+                if (_ignoreMatcher != null && _ignoreMatcher.IsMatch(prospect)) return;
+                var sanitizedProspect = _sanitizationMatcher != null ? _sanitizationMatcher.Replace(prospect, "") : prospect;
+                if (sanitizedProspect.Length == 0) return;
 
-            if (_collection.ContainsKey(sanitizedProspect))
-            {
-                _collection[sanitizedProspect] = _collection[sanitizedProspect] + 1;
+                if (_collection.ContainsKey(sanitizedProspect))
+                {
+                    _collection[sanitizedProspect] = _collection[sanitizedProspect] + 1;
+                }
+                else
+                {
+                    _collection[sanitizedProspect] = 1;
+                }
             }
-            else
-            {
-                _collection[sanitizedProspect] = 1;
-            }
+            
         }
 
-        public IEnumerable<object> GetDigest()
+        public IEnumerable<DigestItem> GetDigest()
         {
-            return _collection.Select(e => new { Url = e.Key, Count = e.Value }).OrderByDescending(e => e.Count);
+            return _collection.Select(e => new DigestItem() { Url = e.Key, Count = e.Value }).OrderByDescending(e => e.Count);
         }
 
         public void Clear()

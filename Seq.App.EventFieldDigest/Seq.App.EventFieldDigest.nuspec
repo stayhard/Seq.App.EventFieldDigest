@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Seq.App.EventFieldDigest</id>
+    <version>$version$</version>
+    <authors>Christopher Lindblom,Kristoffer Jansson</authors>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/stayhard/Seq.App.EventFieldDigest</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>See https://github.com/stayhard/Seq.App.EventFieldDigest for changes.</releaseNotes>
+    <copyright>Copyright Stayhard AB 2014-2015</copyright>
+    <tags>seq-app seq serilog event</tags>
+    <dependencies>
+      <dependency id="Seq.Apps" version="1.6.4" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Debug\Seq.App.EventFieldDigest.dll" target="lib\net45" />
+    <file src="bin\Debug\Seq.App.EventFieldDigest.pdb" target="lib\net45" />
+  </files>
+</package>

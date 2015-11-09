@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Seq.App.EventFieldDigest")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Creates a digest event of a event types unique field value for a defined time intervall.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Stayhard")]
 [assembly: AssemblyProduct("Seq.App.EventFieldDigest")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright Stayhard AB 2014-2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,6 +1,6 @@
 # Seq.App.EventFieldDigest
 
-Creates a digest event of a event types unique field value for a defined time intervall.
+Seq App for creating a digest containing all different values for a specific event property. The digest is generated based on a given interval, and the digest is emitted to the event log as a separate event. 
 
 ## Changes
 

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Seq.App.EventFieldDigest")]
-[assembly: AssemblyDescription("Creates a digest event of a event types unique field value for a defined time intervall.")]
+[assembly: AssemblyDescription("Seq App for creating a digest containing all different values for a specific event property")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Stayhard")]
 [assembly: AssemblyProduct("Seq.App.EventFieldDigest")]

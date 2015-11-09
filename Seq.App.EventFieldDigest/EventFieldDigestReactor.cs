@@ -36,6 +36,8 @@ namespace Seq.App.EventFieldDigest
             _timer.Start();
         }
 
+        protected override 
+
         public async void On(Event<LogEventData> evt)
         {
             if (evt.Data.Properties.ContainsKey(FieldName))
@@ -57,14 +59,14 @@ namespace Seq.App.EventFieldDigest
                     Log
                     .ForContext("Digest", string.Join("\n", data.Select(e => string.Join(": ", e.Count, e.Url))))
                     .ForContext("FieldName", FieldName)
-                    .Information("Field digest for {0}", FieldName);
+                    .Information("Field digest for {InstanceName}", Host.InstanceName);
                 }
                 else
                 {
                     Log
                     .ForContext("Digest", data, true)
                     .ForContext("FieldName", FieldName)
-                    .Information("Field digest for {0}", FieldName);
+                    .Information("Field digest for {InstanceName}", Host.InstanceName);
                 }
                 
             }
